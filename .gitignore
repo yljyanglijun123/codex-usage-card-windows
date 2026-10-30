@@ -1,0 +1,12 @@
+config.json
+*-session.json
+*-exited.json
+session.json
+exited.json
+test-profile/
+*.log
+stop-agent-*
+launcher-error.txt
+config.json.bak
+*.tmp
+resolution.json
