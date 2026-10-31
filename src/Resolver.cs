@@ -65,6 +65,6 @@ public static class Resolver {
   string profile=Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),local=Path.Combine(profile,"AppData","Local");
   c["app"]=SelectApp(registered,old("app"));c["cli"]=ResolveCli((string)c["app"],local,old("cli"));c["node"]=ResolveNode(profile,local,old("node"));
   c["resolutionSource"]=registered==null?"saved-valid-fallback":"registered-package";
-  c["version"]="0.9.6-windows.1";c["resolvedAt"]=DateTime.UtcNow.ToString("o");return c;
+  c["version"]="0.10.1-windows.1";c["resolvedAt"]=DateTime.UtcNow.ToString("o");return c;
  }
 }
