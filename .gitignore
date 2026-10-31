@@ -10,3 +10,5 @@ launcher-error.txt
 config.json.bak
 *.tmp
 resolution.json
+broker*-ready.json
+connection-status.json
