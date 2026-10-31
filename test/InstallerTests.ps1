@@ -1,4 +1,4 @@
-﻿param([string]$Package,[string]$OutputRoot)
+param([string]$Package,[string]$OutputRoot)
 $ErrorActionPreference='Stop'
 $installer=Join-Path $Package 'install.ps1'
 New-Item -ItemType Directory -Force $OutputRoot|Out-Null
@@ -56,7 +56,7 @@ if(!$caught -or (Get-FileHash (Join-Path $foreign 'config.json')).Hash -ne $befo
 Write-Output 'PASS foreign directory rejected without changes'
 $target=Join-Path $OutputRoot 'fresh install 中文'
 & $installer -InstallRoot $target -NoShortcuts
-foreach($file in @('CodexUsageCard.exe','agent.cjs','LICENSE','config.json')){if(!(Test-Path -LiteralPath (Join-Path $target $file))){throw "Missing installed file: $file"}}
+foreach($file in @('CodexUsageCard.exe','CodexUsageCardMonitor-v1.exe','agent.cjs','LICENSE','config.json')){if(!(Test-Path -LiteralPath (Join-Path $target $file))){throw "Missing installed file: $file"}}
 $p=Start-Process -FilePath (Join-Path $target 'CodexUsageCard.exe') -ArgumentList '--resolve' -WindowStyle Hidden -PassThru
 if(!$p.WaitForExit(30000) -or $p.ExitCode -ne 0){throw 'Fresh installed launcher failed resolution'}
 Write-Output 'PASS fresh install from archive and native dependency resolution'
